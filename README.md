@@ -167,6 +167,8 @@ Obtenha o DNS do ALB.
 
 Acesse a URL no navegador (ex.: wordpress-alb-xxxx.elb.amazonaws.com) para visualizar a tela de instalação do WordPress.
 
+<img width="1600" height="828" alt="image" src="https://github.com/user-attachments/assets/79580d18-75c1-467b-8588-d0cfeef9d7f7" />
+
 ## Recomendações de Teste Adicionais:
 =>Termine uma instância manualmente: Verifique se o ASG cria uma nova instância para manter a capacidade desejada.
 
@@ -198,6 +200,13 @@ Podemos observar que os posts estão sendo armazenados corretamente, com a segui
 SELECT ID, post_title, post_date, post_status
 FROM wp_posts
 WHERE post_type = 'post';
+
+=> Teste de cache:
+
+<img width="1600" height="835" alt="image" src="https://github.com/user-attachments/assets/67144ad8-da4c-4da0-9677-43fc2d3f028b" />
+
+<img width="1600" height="802" alt="image" src="https://github.com/user-attachments/assets/bd0753db-9676-4bb5-873c-50fa1e18e1e0" />
+
 
 ## Opcional: Aumento de tráfego simulado para testar ASG
 
