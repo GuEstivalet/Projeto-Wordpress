@@ -169,6 +169,13 @@ Verifique a saúde das instâncias no Target Group.
 
 Obtenha o DNS do ALB.
 
+Observando os logs da ec2, temos:
+
+sudo cat /var/log/cloud-init-output.log
+
+<img width="1373" height="813" alt="image" src="https://github.com/user-attachments/assets/a03f0abb-2641-4f3c-b601-4f0cd1e79164" />
+
+
 Acesse a URL no navegador (ex.: wordpress-alb-xxxx.elb.amazonaws.com) para visualizar a tela de instalação do WordPress.
 
 <img width="1600" height="828" alt="image" src="https://github.com/user-attachments/assets/79580d18-75c1-467b-8588-d0cfeef9d7f7" />
@@ -186,7 +193,14 @@ Em seguida:
 
 =>Faça upload de uma imagem, poste algo: Valide a persistência de dados. O novo tema deve estar disponível em todas as instâncias devido ao uso do EFS.
 
+Verificando EFS:
+
+df -h | grep efs
+
+<img width="748" height="49" alt="image" src="https://github.com/user-attachments/assets/a86840f6-c5c6-436a-a680-3466d6f1d9cb" />
+
 Postar:
+
 <img width="1917" height="997" alt="image" src="https://github.com/user-attachments/assets/48b0a146-a4ab-441e-9cbe-c17f0793a035" />
 
 Ceferir com:
