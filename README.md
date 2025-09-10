@@ -1,7 +1,7 @@
 # Infraestrutura AWS - WordPress
 Este repositório contém a infraestrutura como código para a criação de um ambiente WordPress na AWS. A arquitetura foi configurada de forma a garantir alta disponibilidade, escalabilidade e segurança.
 
-# Passos para 
+## Siga os passos para realizar a implementação:
 
 ## 1. Virtual Private Cloud (VPC)
 VPC personalizada com sub-redes públicas e privadas.
@@ -80,6 +80,19 @@ Tipo de Entidade: EC2.
 
 Permissões: EC2FullAccess e AutoScalingFullAccess.
 
+json: 
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "iam:PassRole",
+      "Resource": "*"
+    }
+  ]
+}
+
+
 ## 6. Launch Template
 
 AMI: Ubuntu.
@@ -154,9 +167,34 @@ Obtenha o DNS do ALB.
 
 Acesse a URL no navegador (ex.: wordpress-alb-xxxx.elb.amazonaws.com) para visualizar a tela de instalação do WordPress.
 
-Recomendações de Teste Adicionais:
+## Recomendações de Teste Adicionais:
 Termine uma instância manualmente: Verifique se o ASG cria uma nova instância para manter a capacidade desejada.
 
-Faça upload de um tema ou plugin: Valide a persistência de dados. O novo tema deve estar disponível em todas as instâncias devido ao uso do EFS.
+Faça upload de uma imagem, poste algo: Valide a persistência de dados. O novo tema deve estar disponível em todas as instâncias devido ao uso do EFS.
+
+O EFS realmente contém os arquivos de mídia. Ou seja, se uma instância cair, outra pega os mesmos dados no EFS
 
 Verifique o banco de dados: Confirme se as tabelas do WordPress estão sendo criadas no banco de dados RDS.
+
+## Opcional: Aumento de tráfego simulado para testar ASG
+
+Simulação de requisições:
+
+Configurar na política do ASG: diminui a tolerância para >40% de uso da CPU (só para fins didáticos)
+
+Em sua distribuição local, rode:
+
+sudo apt-get update
+sudo apt-get install apache2-utils -y
+
+while true; do ab -n 5000 -c 50 http://wordpress-lb-307024714.us-east-1.elb.amazonaws.com/; done
+
+<img width="1600" height="230" alt="image" src="https://github.com/user-attachments/assets/0c953dff-2a78-42a3-af78-adc48aba24b3" />
+
+Assim, Podemos ver que o Auto Scaling funciona na medida que criou outras instâncias ao sobrecarregarmos o uso da CPU através de requisições simuladas.
+
+<img width="1731" height="214" alt="image" src="https://github.com/user-attachments/assets/8c3a1910-4359-4590-a38a-cadbd772138e" />
+
+Após algum tempo depois da simulação, podemos observar que as instâncias são desalocadas. Assim, o sistema se adequa automaticamente e garante que não haverá queda do serviço.
+
+
