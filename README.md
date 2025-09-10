@@ -168,13 +168,36 @@ Obtenha o DNS do ALB.
 Acesse a URL no navegador (ex.: wordpress-alb-xxxx.elb.amazonaws.com) para visualizar a tela de instalação do WordPress.
 
 ## Recomendações de Teste Adicionais:
-Termine uma instância manualmente: Verifique se o ASG cria uma nova instância para manter a capacidade desejada.
+=>Termine uma instância manualmente: Verifique se o ASG cria uma nova instância para manter a capacidade desejada.
 
-Faça upload de uma imagem, poste algo: Valide a persistência de dados. O novo tema deve estar disponível em todas as instâncias devido ao uso do EFS.
+<img width="1600" height="761" alt="image" src="https://github.com/user-attachments/assets/4a8b8b8a-648f-40cf-9ce3-1a70cd7768d5" />
+
+Em seguida:
+
+<img width="1600" height="750" alt="image" src="https://github.com/user-attachments/assets/b1c27143-aeea-4e5b-81fb-58c3069c53eb" />
+
+=>Faça upload de uma imagem, poste algo: Valide a persistência de dados. O novo tema deve estar disponível em todas as instâncias devido ao uso do EFS.
+
+Postar:
+<img width="1600" height="829" alt="image" src="https://github.com/user-attachments/assets/7dc0bc4d-2a77-446b-a14b-3ca66b9bb92c" />
+
+Ceferir com:
+
+sudo docker inspect wordpress_wordpress_1 | grep -A5 Mounts
+
+<img width="692" height="131" alt="image" src="https://github.com/user-attachments/assets/6e663514-f4fa-46b7-a12c-9bda623b303c" />
 
 O EFS realmente contém os arquivos de mídia. Ou seja, se uma instância cair, outra pega os mesmos dados no EFS
 
-Verifique o banco de dados: Confirme se as tabelas do WordPress estão sendo criadas no banco de dados RDS.
+=>Verifique o banco de dados: Confirme se as tabelas do WordPress estão sendo criadas no banco de dados RDS.
+
+<img width="659" height="562" alt="image" src="https://github.com/user-attachments/assets/7860a52f-8f2f-4a60-b646-a7576b10e8b8" />
+
+Podemos observar que os posts estão sendo armazenados corretamente, com a seguinte query:
+
+SELECT ID, post_title, post_date, post_status
+FROM wp_posts
+WHERE post_type = 'post';
 
 ## Opcional: Aumento de tráfego simulado para testar ASG
 
