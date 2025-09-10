@@ -1,6 +1,8 @@
 # Infraestrutura AWS - WordPress
 Este repositório contém a infraestrutura como código para a criação de um ambiente WordPress na AWS. A arquitetura foi configurada de forma a garantir alta disponibilidade, escalabilidade e segurança.
 
+# Passos para 
+
 ## 1. Virtual Private Cloud (VPC)
 VPC personalizada com sub-redes públicas e privadas.
 
@@ -119,6 +121,9 @@ Política de Escalonamento: Baseada na Utilização da CPU (ex.: > 70%).
 Health Check: Tipo ELB.
 
 ## 9. Application Load Balancer (ALB)
+
+Criar Application Load Balancer.
+
 Scheme: internet-facing.
 
 Subnets: Selecionadas as duas subnets públicas (pub-a, pub-b).
@@ -127,7 +132,20 @@ Security Group: SG-ALB.
 
 Listener: HTTP:80 com direcionamento para o Target Group (wordpress-tg).
 
-## 10. Teste e Validação
+## 10. Integrações
+
+EC2-> ASG-> Integrações-> Integra o LB criado ao ASG
+
+## 12. Criar Bastion host
+
+Tipo de instância: Ubuntu.
+
+Habilitar ip público.
+
+SG-Bastion
+
+## 11. Teste e Validação
+
 Aguarde o ASG lançar as instâncias.
 
 Verifique a saúde das instâncias no Target Group.
