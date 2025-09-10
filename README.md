@@ -81,6 +81,8 @@ Tipo de Entidade: EC2.
 Permissões: EC2FullAccess e AutoScalingFullAccess.
 
 json: 
+
+''
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -91,7 +93,7 @@ json:
     }
   ]
 }
-
+''
 
 ## 6. Launch Template
 
@@ -155,7 +157,7 @@ Tipo de instância: Ubuntu.
 
 Habilitar ip público.
 
-SG-Bastion
+Atribuir SG-Bastion
 
 ## 11. Teste e Validação
 
@@ -177,6 +179,8 @@ Acesse a URL no navegador (ex.: wordpress-alb-xxxx.elb.amazonaws.com) para visua
 Em seguida:
 
 <img width="1600" height="750" alt="image" src="https://github.com/user-attachments/assets/b1c27143-aeea-4e5b-81fb-58c3069c53eb" />
+
+É possível observar pelos id's que uma instância foi derrubada e após um breve período de tempo outra instância foi alocada.
 
 =>Faça upload de uma imagem, poste algo: Valide a persistência de dados. O novo tema deve estar disponível em todas as instâncias devido ao uso do EFS.
 
