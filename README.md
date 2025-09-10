@@ -153,6 +153,8 @@ EC2-> ASG-> Integrações-> Integra o LB criado ao ASG
 
 ## 12. Criar Bastion host
 
+Criado para acessar as máquinas privadas e poder verificar logs, componentes do docker, conexão com banco de dados, elastic file system e realizar a simulação de tráfego.
+
 Tipo de instância: Ubuntu.
 
 Habilitar ip público.
