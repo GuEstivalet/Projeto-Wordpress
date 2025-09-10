@@ -179,7 +179,7 @@ Em seguida:
 =>Faça upload de uma imagem, poste algo: Valide a persistência de dados. O novo tema deve estar disponível em todas as instâncias devido ao uso do EFS.
 
 Postar:
-<img width="1600" height="829" alt="image" src="https://github.com/user-attachments/assets/7dc0bc4d-2a77-446b-a14b-3ca66b9bb92c" />
+<img width="1917" height="997" alt="image" src="https://github.com/user-attachments/assets/48b0a146-a4ab-441e-9cbe-c17f0793a035" />
 
 Ceferir com:
 
