@@ -60,9 +60,13 @@ RDS Instance:
 
 Engine: MySQL.
 
+Implantação de instância de banco de dados Single-AZ (1 instância)
+
 Instance Type: t3.micro.
 
-Acesso: Restrito apenas às instâncias EC2 através do SG-EC2.
+Remover SG default e selecionar SG-RDS
+
+Acesso: Restrito apenas às instâncias EC2 através do SG-RDS.
 
 ## 4. EFS (Elastic File System)
 Subnets: Selecionadas as subnets privadas (priv-a e priv-b).
@@ -75,19 +79,14 @@ Tipo de Entidade: EC2.
 Permissões: EC2FullAccess e AutoScalingFullAccess.
 
 ## 6. Launch Template
-Tags:
-
-Name = wordpress-ec2
-
-Project = Wordpress-Project
-
-CostCenter = DevSecOpsLab
 
 AMI: Ubuntu.
 
 Instance Type: t3.micro.
 
 Security Group: SG-EC2.
+
+Tags de autenticação.
 
 Detalhes Avançados: Associado à AMI Role criada e inclui um script de User Data para configuração automática das instâncias.
 
