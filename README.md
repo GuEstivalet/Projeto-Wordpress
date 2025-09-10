@@ -209,7 +209,7 @@ sudo docker inspect wordpress_wordpress_1 | grep -A5 Mounts
 
 <img width="692" height="131" alt="image" src="https://github.com/user-attachments/assets/6e663514-f4fa-46b7-a12c-9bda623b303c" />
 
-O EFS realmente contém os arquivos de mídia. Ou seja, se uma instância cair, outra pega os mesmos dados no EFS
+O EFS realmente contém os arquivos de mídia. Ou seja, se uma instância cair, outra pega os mesmos dados no EFS.
 
 =>Verifique o banco de dados: Confirme se as tabelas do WordPress estão sendo criadas no banco de dados RDS.
 
@@ -222,6 +222,8 @@ FROM wp_posts
 WHERE post_type = 'post';
 
 => Teste de cache:
+
+Para validar o comportamento de cache, realizei o acesso em uma guia anônima do navegador, garantindo que o conteúdo fosse carregado diretamente do servidor.
 
 <img width="1600" height="835" alt="image" src="https://github.com/user-attachments/assets/67144ad8-da4c-4da0-9677-43fc2d3f028b" />
 
