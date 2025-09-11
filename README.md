@@ -1,5 +1,5 @@
 # Infraestrutura AWS - WordPress
-Este repositório contém a infraestrutura como código para a criação de um ambiente WordPress na AWS. A arquitetura foi configurada de forma a garantir alta disponibilidade, escalabilidade e segurança.
+Este repositório contém a documentação da aplicação detalhada de um ambiente WordPress na AWS. A arquitetura foi configurada de forma a garantir alta disponibilidade, escalabilidade e segurança.
 
 ## Siga os passos para realizar a implementação:
 
